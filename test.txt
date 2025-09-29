@@ -1,0 +1,73 @@
+Ejercicio propuesto: API de Tareas con Express
+Objetivo
+
+Construir una pequeña API REST para gestionar una lista de tareas (to-do list).
+
+Requerimientos
+
+Config inicial
+
+Crear un proyecto Node con npm init -y.
+
+Instalar express y nodemon.
+
+Levantar un servidor en el puerto 3000.
+
+Endpoints obligatorios
+
+GET /tasks → devuelve todas las tareas.
+
+GET /tasks/:id → devuelve una tarea por id.
+
+POST /tasks → crea una nueva tarea.
+
+PUT /tasks/:id → actualiza una tarea existente.
+
+DELETE /tasks/:id → elimina una tarea.
+
+Estructura de datos de la tarea
+
+{
+  "id": "uuid",
+  "title": "string",
+  "completed": "boolean"
+}
+
+
+Validaciones
+
+title es obligatorio y debe ser un string no vacío.
+
+completed por defecto es false si no se envía.
+
+Si se pide un id que no existe → devolver 404 con mensaje de error.
+
+Extra (para mid-level)
+
+Separar el código en carpetas: routes, controllers, models (aunque los datos sean en memoria).
+
+Usar uuid para los IDs.
+
+Manejo de errores con try/catch.
+
+Middleware para loguear cada request (method, url, time).
+
+Respuestas en formato JSON con estado (success: true/false).
+
+Persistencia (opcional si sobra tiempo)
+
+Guardar las tareas en un archivo tasks.json y leer/escribir en él.
+
+Ejemplo de flujo esperado
+
+POST /tasks con body { "title": "Aprender Node" }
+→ Devuelve { "id": "...", "title": "Aprender Node", "completed": false }.
+
+GET /tasks
+→ Devuelve lista con las tareas creadas.
+
+PUT /tasks/:id con body { "completed": true }
+→ Marca la tarea como completada.
+
+DELETE /tasks/:id
+→ Elimina la tarea.
